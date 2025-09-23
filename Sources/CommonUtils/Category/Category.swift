@@ -71,42 +71,42 @@ public extension [String: Any] {
         guard let value = self[key] else {
             return nil
         }
-        return UtilCore.string(from: value)
+        return CommonUtils.string(from: value)
     }
     
     func boolFor(_ key: String) -> Bool? {
         guard let value = self[key] else {
             return nil
         }
-        return UtilCore.bool(from: value)
+        return CommonUtils.bool(from: value)
     }
     
     func intFor(_ key: String) -> Int? {
         guard let value = self[key] else {
             return nil
         }
-        return UtilCore.int(from: value)
+        return CommonUtils.int(from: value)
     }
     
     func doubleFor(_ key: String) -> Double? {
         guard let value = self[key] else {
             return nil
         }
-        return UtilCore.double(from: value)
+        return CommonUtils.double(from: value)
     }
     
     func arrayFor(_ key: String) -> [Any]? {
         guard let value = self[key] else {
             return nil
         }
-        return UtilCore.array(from: value)
+        return CommonUtils.array(from: value)
     }
 
     func dictionaryFor(_ key: String) -> [String: Any]? {
         guard let value = self[key] else {
             return nil
         }
-        return UtilCore.dictionary(from: value)
+        return CommonUtils.dictionary(from: value)
     }
 }
 
@@ -125,7 +125,7 @@ public extension [Any] {
             return nil
         }
         let value = self[index]
-        return UtilCore.string(from: value)
+        return CommonUtils.string(from: value)
     }
     
     func bool(at index: Int) -> Bool? {
@@ -133,7 +133,7 @@ public extension [Any] {
             return nil
         }
         let value = self[index]
-        return UtilCore.bool(from: value)
+        return CommonUtils.bool(from: value)
     }
     
     func int(at index: Int) -> Int? {
@@ -141,7 +141,7 @@ public extension [Any] {
             return nil
         }
         let value = self[index]
-        return UtilCore.int(from: value)
+        return CommonUtils.int(from: value)
     }
     
     func double(at index: Int) -> Double? {
@@ -149,7 +149,7 @@ public extension [Any] {
             return nil
         }
         let value = self[index]
-        return UtilCore.double(from: value)
+        return CommonUtils.double(from: value)
     }
     
     func array(at index: Int) -> [Any]? {
@@ -157,7 +157,7 @@ public extension [Any] {
             return nil
         }
         let value = self[index]
-        return UtilCore.array(from: value)
+        return CommonUtils.array(from: value)
     }
     
     func dictionary(at index: Int) -> [String: Any]? {
@@ -165,7 +165,7 @@ public extension [Any] {
             return nil
         }
         let value = self[index]
-        return UtilCore.dictionary(from: value)
+        return CommonUtils.dictionary(from: value)
     }
 }
 
