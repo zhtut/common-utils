@@ -57,7 +57,7 @@ public extension Decimal {
     }
 }
 
-public extension [String: Any] {
+public extension Dictionary {
 
     var jsonString: String? {
         if let data = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted) {
@@ -67,42 +67,42 @@ public extension [String: Any] {
         return nil
     }
     
-    func stringFor(_ key: String) -> String? {
+    func stringFor(_ key: Key) -> String? {
         guard let value = self[key] else {
             return nil
         }
         return CommonUtils.string(from: value)
     }
     
-    func boolFor(_ key: String) -> Bool? {
+    func boolFor(_ key: Key) -> Bool? {
         guard let value = self[key] else {
             return nil
         }
         return CommonUtils.bool(from: value)
     }
     
-    func intFor(_ key: String) -> Int? {
+    func intFor(_ key: Key) -> Int? {
         guard let value = self[key] else {
             return nil
         }
         return CommonUtils.int(from: value)
     }
     
-    func doubleFor(_ key: String) -> Double? {
+    func doubleFor(_ key: Key) -> Double? {
         guard let value = self[key] else {
             return nil
         }
         return CommonUtils.double(from: value)
     }
     
-    func arrayFor(_ key: String) -> [Any]? {
+    func arrayFor(_ key: Key) -> [Any]? {
         guard let value = self[key] else {
             return nil
         }
         return CommonUtils.array(from: value)
     }
 
-    func dictionaryFor(_ key: String) -> [String: Any]? {
+    func dictionaryFor(_ key: Key) -> [String: Any]? {
         guard let value = self[key] else {
             return nil
         }
@@ -110,7 +110,7 @@ public extension [String: Any] {
     }
 }
 
-public extension [Any] {
+public extension Array {
     
     var jsonString: String? {
         if let data = try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted) {
