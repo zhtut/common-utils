@@ -35,3 +35,72 @@ public extension String {
             .map({ "\($0)" })
     }
 }
+
+public extension String {
+    
+    var isNotEmpty: Bool {
+        return !isEmpty
+    }
+    
+    func suffix(from: String) -> String {
+        if let startRange = range(of: from) {
+            let str = suffix(from: startRange.upperBound)
+            return "\(str)"
+        }
+        return self
+    }
+    
+    func prefix(to: String) -> String {
+        if let endRange = self.range(of: to) {
+            let str = prefix(upTo: endRange.lowerBound)
+            return "\(str)"
+        }
+        return self
+    }
+    
+    var double: Double? {
+        return Double(self)
+    }
+    
+    func defaultDouble(_ `default`: Double = 0.0) -> Double {
+        return double ?? `default`
+    }
+    
+    var int: Int? {
+        return Int(self)
+    }
+    
+    func defaultInt(_ `default`: Int = 0) -> Int {
+        return int ?? `default`
+    }
+    
+    var decimal: Decimal? {
+        return Decimal(string: self)
+    }
+    
+    func defaultDecimal(_ `default`: Decimal = 0.0) -> Decimal {
+        return decimal ?? `default`
+    }
+    
+    var precision: Int {
+        var newPre = self
+        while newPre.hasSuffix("0") {
+            newPre = "\(newPre.prefix(newPre.count - 2))"
+        }
+        let arr = newPre.components(separatedBy: ".")
+        if arr.count == 1 {
+            return 0
+        }
+        if let str = arr.last {
+            return str.count
+        }
+        return 0
+    }
+    
+    func urlEncodeString() -> String? {
+        let characters = "!*'();:@&=+$,/?%#[]"
+        let set = CharacterSet(charactersIn: characters).inverted
+        let str = self.addingPercentEncoding(withAllowedCharacters: set)
+        return str
+    }
+}
